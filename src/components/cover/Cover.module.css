@@ -1,0 +1,14 @@
+.Cover img {
+    height: 650px;
+    width: 415px;
+    margin: 1px;
+    transition: transform .2s;
+}
+@media only screen and (max-width: 425px) {
+    .Cover img  {
+        width: 300px;
+    }
+  }
+.Cover img:hover {
+    transform: scale(1.1); 
+  }

@@ -1,0 +1,76 @@
+.Container {
+    display: table;
+    width: 100%;
+    background-position: center center;   
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color:#000000;
+  }
+  @media only screen and (max-width: 425px) {
+    .Container {
+      height: 100%;
+      background-size: cover;
+      background-attachment: unset;
+
+
+    }
+  }
+  
+  .Content {
+    margin: 50px auto;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px #000000;
+  }
+  
+  .Subtitle {
+    font-size: 18px;
+    line-height: 23px;
+    
+  }
+ 
+    .Button {
+    font-weight: bold;
+    margin-top: 30px;
+    color: #000000c0;
+    border: #f1f1f1 1px solid;
+    padding: 10px 5px;
+    background-color: #f1f1f1;;
+    font-size: 1.25rem;
+    border-radius: 5px;
+    text-shadow: 0px 0px 0px #f1f1f1;;
+
+}
+.Button:hover {
+    background-color: #000000c0;
+    color: #f1f1f1;
+}
+
+  .Video video{    
+    text-align:center;
+    align-content: center;
+    height: 600px;
+    width: 80%;
+    margin: 0;
+    padding: 0;
+  }
+  @media only screen and (max-width: 425px) {
+    .Video video {
+      height: 40%;
+    }
+  }
+  
+
+  .Video video[poster]{
+    object-fit: fill;
+
+
+    }
+    .List{
+      text-align: left;
+      margin-left: 7.5%;
+      list-style-type: none;
+  }

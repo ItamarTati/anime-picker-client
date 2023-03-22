@@ -1,0 +1,80 @@
+.Shows {
+  padding-bottom: 85px;
+  min-height: 86vh;
+}
+
+.Pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  padding-bottom: 25px;
+  color: black;
+}
+
+.NotFound img {
+  max-width: 100%;
+}
+
+.MenuIcon {
+  font-size: 2rem;
+  margin-left: 1rem;
+}
+
+.Modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 90%;
+  background-color: white;
+  border: 2px solid #000;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.Search {
+  padding-bottom: 25px;
+}
+
+.ButtonSearch {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #6ad63f;
+  color: #000000;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid #000;
+  margin: 5px;
+}
+
+.ButtonCancel {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #bb2727;
+  color: #ffffff;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid #000;
+  margin: 5px;
+}
+
+.ButtonSearch:hover {
+  background-color: #00ffff;
+  color: #ffffff;
+}
+
+.ButtonCancel:hover {
+  background-color: #00ffff;
+  color: #ffffff;
+}

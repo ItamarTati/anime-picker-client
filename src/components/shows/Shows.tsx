@@ -74,7 +74,7 @@ const Shows: React.FC = () => {
     const limitParam = `&limit=${limit}`;
     const sortParam = `&sort=${sortField}:${sortOrder}`;
     fetch(
-      `/api/shows${pageParam}${genresParam}${searchParam}${limitParam}${sortParam}`
+      `https://tame-puce-sawfish-coat.cyclic.app//api/shows${pageParam}${genresParam}${searchParam}${limitParam}${sortParam}`
     )
       .then((response) => response.json())
       .then((data) => {

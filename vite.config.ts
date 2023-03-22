@@ -5,14 +5,6 @@ export default defineConfig({
   plugins: [react()],
   build: {
     outDir: 'dist',
-  },
-  server: {
-    proxy: {
-      '/api/shows': {
-        target: 'https://tame-puce-sawfish-coat.cyclic.app/',
-        changeOrigin: true
-      }
-    }
   }
 });
 

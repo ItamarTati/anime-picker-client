@@ -13,7 +13,7 @@ export default function Details() {
   useEffect(() => {
     const fetchShow = async () => {
       try {
-        const response = await fetch(`/api/shows/${_id}`);
+        const response = await fetch(`https://tame-puce-sawfish-coat.cyclic.app/api/shows/${_id}`);
         if (!response.ok) {
           throw new Error('Failed to fetch show');
         }

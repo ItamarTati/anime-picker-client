@@ -9,7 +9,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api/shows': {
-        target: 'http://localhost:4000',
+        target: 'https://tame-puce-sawfish-coat.cyclic.app/',
         changeOrigin: true
       }
     }

@@ -37,6 +37,12 @@
   align-items: center;
 }
 
+.Modal > div {
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
 .Search {
   padding-bottom: 25px;
 }

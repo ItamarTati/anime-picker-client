@@ -62,16 +62,18 @@ const Shows: React.FC = () => {
   const [limit, setLimit] = useState<number>(4);
   const [sortField, setSortField] = useState<string>("title");
   const [sortOrder, setSortOrder] = useState<string>("asc");
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+
   function fetchData(
-    page: number = 1,
     userSelctedGenres: Array<string> = [],
     searchValue: string = "",
     limit: number = 4,
     sortField: string = "title",
-    sortOrder: string = "asc"
+    sortOrder: string = "asc",
+    page: number = 1
   ) {
     const pageParam = `?page=${page}`;
     const genresParam = `&genres=${userSelctedGenres.join(",")}`;
@@ -86,6 +88,7 @@ const Shows: React.FC = () => {
         setData(data);
         setGenres(data.listOfGenres);
         setLoading(false);
+        if(page === 1) setCurrentPage(1)
       })
       .catch((error) => console.error(error));
   }
@@ -95,13 +98,14 @@ const Shows: React.FC = () => {
     page: number
   ) => {
     setLoading(true);
+    setCurrentPage(page)
     fetchData(
-      page,
       userSelctedGenres,
       searchValue,
       limit,
       sortField,
-      sortOrder
+      sortOrder,
+      page
     );
   };
   useEffect(() => {
@@ -139,20 +143,18 @@ const Shows: React.FC = () => {
   };
 
   const excuteSearchOnClick = (
-    page: number,
     userSelctedGenres: Array<string>,
     searchValue: string,
     limit: number,
     sortField: string,
-    sortOrder: string
+    sortOrder: string,
   ) => {
     fetchData(
-      page,
       userSelctedGenres,
       searchValue,
       limit,
       sortField,
-      sortOrder
+      sortOrder,
     );
 
     handleClose();
@@ -198,10 +200,7 @@ const Shows: React.FC = () => {
         </div>
       )}
 
-  <div className={classes.Pagination}>
-    {loading ? (
-      ''
-    ) : (
+  <div className={classes.Pagination}> 
       <Pagination
         count={data?.numberOfPages}
         showFirstButton
@@ -209,9 +208,11 @@ const Shows: React.FC = () => {
         size="large"
         variant="outlined"
         color="secondary"
+        disabled= {!data?.animes.length ? true : false}
         onChange={handlePageChange}
+        page={currentPage}
       />
-    )}
+
   </div>
   <div className={classes.Search}>
     {loading ? (
@@ -220,13 +221,13 @@ const Shows: React.FC = () => {
       <>
         <Button
           sx={{
-            backgroundColor: "white",
-            color: "black",
+            backgroundColor: "#3F00FF",
+            color: "white",
             border: "1px solid #000",
             marginRight: "10px",
             "&:hover": {
-              backgroundColor: "black",
-              color: "white",
+              backgroundColor: "#00ffff",
+              color: "black",
             },
           }}
           onClick={handleOpen}
@@ -241,13 +242,13 @@ const Shows: React.FC = () => {
           >
             <Button
               sx={{
-                backgroundColor: "white",
-                color: "black",
+                backgroundColor: "red",
+                color: "white",
                 border: "1px solid #000",
                 marginLeft: "10px",
                 "&:hover": {
-                  backgroundColor: "red",
-                  color: "white",
+                  backgroundColor: "#00ffff",
+                  color: "black",
                 },
               }}
             >
@@ -264,12 +265,10 @@ const Shows: React.FC = () => {
         <Modal
           open={open}
           onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
         >
           <Box className={classes.Modal}>
             <div>
-              <Typography id="modal-modal-title" variant="h6" component="h2">
+              <Typography variant="h6" component="h2">
                 Advance Search Settings
               </Typography>
 
@@ -279,7 +278,6 @@ const Shows: React.FC = () => {
                     padding: 20,
                   },
                 }}
-                id="outlined-basic"
                 label="Search by Anime"
                 variant="outlined"
                 sx={{ mt: 2 }}
@@ -292,10 +290,8 @@ const Shows: React.FC = () => {
                 Refine your search by filtering genres. Add one or more genres
                 to find anime that match your preferences.
               </Typography>
-              <Select
+              <Select 
                 SelectDisplayProps={{ style: { whiteSpace: "unset" } }}
-                labelId="demo-mutiple-chip-checkbox-label"
-                id="demo-mutiple-chip-checkbox"
                 multiple
                 value={userSelctedGenres}
                 onChange={handleGenresChange}
@@ -349,9 +345,9 @@ const Shows: React.FC = () => {
 
             <div>
               <Typography sx={{ mt: 2 }}>
-                To make this message more informative, you could add options for
-                how to sort, like title, number of episodes, number of manga
-                chapters or the day the anime was released
+              Looking for a specific? Try sorting our 
+              collection by title, number of episodes, number of manga 
+              chapters, or the day it was released!
               </Typography>
               <div>
                 <Select
@@ -387,7 +383,6 @@ const Shows: React.FC = () => {
                 className={classes.ButtonSearch}
                 onClick={() =>
                   excuteSearchOnClick(
-                    1,
                     userSelctedGenres,
                     searchValue,
                     limit,

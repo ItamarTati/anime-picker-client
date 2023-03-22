@@ -20,7 +20,7 @@ const BackgroundVideo: React.FC = () => {
                 <div className={classes.SubContent} >
                     <h1>Welcome to the World of Anime & Manga</h1>
                     <p>A World of Great Stories & Beautiful Beyond your Wildest Dreams</p>
-                    <a href="#shows"><button type="button" className="btn btn-outline-dark">View some Animes & Manga</button></a>
+                    <a href="#animes"><button type="button" className="btn btn-outline-dark">View some Animes & Manga</button></a>
                     <img
                         src={imageSource}
                         alt="profile" />

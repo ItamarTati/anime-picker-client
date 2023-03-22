@@ -154,7 +154,7 @@ const Shows: React.FC = () => {
       ) : (
         <div>
           <Header />
-          <div id="shows" className={classes.Shows}>
+          <div id="animes" className={classes.Shows}>
             <div>
               <h1>Animes & Manga (アニメやマンガ)</h1>
               {searchValue ? (

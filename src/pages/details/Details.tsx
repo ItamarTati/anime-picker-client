@@ -9,8 +9,9 @@ export default function Details() {
   const [show, setShow] = useState<Show>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const backgroundImage = require(`../../assets/img/${show?.backgroundImage}`).default;
-  const backCoverImage = require(`../../assets/img/${show?.backCoverImage}`).default;
+  
+  const backgroundImage = new URL(`/src/${show?.backgroundImage}`, import.meta.url).href
+  const backCoverImage = new URL(`/src/${show?.backCoverImage}`, import.meta.url).href
 
   useEffect(() => {
     const fetchShow = async () => {

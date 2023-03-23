@@ -9,6 +9,8 @@ export default function Details() {
   const [show, setShow] = useState<Show>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const backgroundImage = require(`../../assets/img/${show?.backgroundImage}`).default;
+  const backCoverImage = require(`../../assets/img/${show?.backCoverImage}`).default;
 
   useEffect(() => {
     const fetchShow = async () => {
@@ -32,7 +34,7 @@ export default function Details() {
   if (error) return <Navigate to='not-found' />;
 
   return (
-    <div className={classes.Container} style={{ backgroundImage: `url(/src/${show?.backgroundImage})` }}>
+    <div className={classes.Container} style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className={classes.Content}>
         <h1>
           {show?.title} by {show?.author}
@@ -41,7 +43,7 @@ export default function Details() {
           <strong>{show?.description}</strong>
         </p>
         <div className={classes.Video}>
-          <video controls poster={`/src/${show?.backCoverImage}`}>
+          <video controls poster={`${backCoverImage}`}>
             <source src={show?.trailer} type='video/mp4' />
           </video>
         </div>

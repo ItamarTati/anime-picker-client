@@ -11,9 +11,11 @@ interface Props {
 
 const Cover: React.FC<Props> = (props) => {
     const { title, frontCoverImage, _id } = props;
+    const image = require(`../../assets/img/${frontCoverImage}`).default;
+
     return (
         <Link to={`/anime/${_id}`} className={classes.Cover}>
-            <img src={`/src/${frontCoverImage}`} alt={title} />
+            <img src={image} alt={title} />
         </Link>
     );
 }

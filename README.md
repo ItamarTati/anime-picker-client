@@ -13,6 +13,7 @@ Anime Picker Client is a web application built with React.js that allows users t
 - Browse through a collection of anime shows
 ![Screenshot 2023-03-26 143417](https://user-images.githubusercontent.com/40800366/227779329-f1008205-f8e1-4199-9bb6-d061a4d1205e.png)
 - Filter shows by genres
+
 ![Screenshot 2023-03-26 143254](https://user-images.githubusercontent.com/40800366/227779219-f3e17d5c-19b2-4661-bc6f-8a684ebc511f.png)
 - Search for shows by Anime Title
 - Sort shows by Title, Number of Episodes, Number of Chapters, Day the Anime Released
